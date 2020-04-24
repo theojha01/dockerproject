@@ -1,1 +1,32 @@
-
+version: '3'
+  services:
+    dbos:
+      image: mysql:5.7
+      volumes:
+        -mysql_storage_new:/var/lib/mysql
+      restart: always
+      environment:
+        MYSQL_ROOT_PASSWORD: rootpass
+        MYSQL_USER: abhinav
+        MYSQL_PASSWORD: abhi2001
+        MYSQL_DATABASE: mydb
+        
+    wpos:
+      image: wordpress:5.1.1-php7.3-apache
+      restart: always
+      depends_on:
+        - dbos
+      ports:
+        - 8081:80
+      environment:
+        WORDPRESS_DB_HOST: dbos
+        WORDPRESS_DB_USER: abhinav
+        WORDPRESS_DB_PASSWORD: abhi2001
+        WORDPRESS_DB_NAME: mydb
+      volumes:
+        - wp_storage_new:/var/www/html
+  
+  
+  volumes:
+    - mysql_storage_new:
+    - wp_storage_new:
