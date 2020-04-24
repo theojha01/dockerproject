@@ -7,8 +7,8 @@ version: '3'
       restart: always
       environment:
         MYSQL_ROOT_PASSWORD: rootpass
-        MYSQL_USER: abhinav
-        MYSQL_PASSWORD: abhi2001
+        MYSQL_USER: aakash
+        MYSQL_PASSWORD: redhat
         MYSQL_DATABASE: mydb
         
     wpos:
@@ -20,9 +20,9 @@ version: '3'
         - 8081:80
       environment:
         WORDPRESS_DB_HOST: dbos
-        WORDPRESS_DB_USER: abhinav
-        WORDPRESS_DB_PASSWORD: abhi2001
-        WORDPRESS_DB_NAME: mydb
+        WORDPRESS_DB_USER: aakash
+        WORDPRESS_DB_PASSWORD: redhat
+        WORDPRESS_DB_NAME: mydatabase
       volumes:
         - wp_storage_new:/var/www/html
   
