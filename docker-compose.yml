@@ -10,7 +10,11 @@ version: '3'
         MYSQL_USER: aakash
         MYSQL_PASSWORD: redhat
         MYSQL_DATABASE: mydb
-        
+        depends_on:
+      - dbos
+        links:
+      - dbos
+
     wpos:
       image: wordpress:5.1.1-php7.3-apache
       restart: always
